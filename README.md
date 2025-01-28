@@ -9,11 +9,11 @@ That being said, Solitans can contact @bensku in Slack for assistance.
 
 ## Requirements
 Before we start, make sure you have these tools installed and configured:
-* `gcloud` CLI (authenticated to your project)
+* [`gcloud`](https://cloud.google.com/sdk/docs/install) CLI (authenticated to your project) and [`gke-gcloud-auth-plugin`](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
 * `kubectl`
 * `helm`
 * `git`
-* OpenTofu
+* [OpenTofu](https://opentofu.org/docs/intro/install/)
 
 I recommend using your local computer. Cloud Shell can install things, but
 port forwarding will not work so you can't (securely) access Superset.
@@ -43,7 +43,7 @@ input from you. Time for a coffee break?
 
 Finally, we should configure your local `kubectl` to access the Superset cluster:
 ```sh
-gcloud container clusters get-credentials superset-cluster --region $GCP_REGION --project $GCP_PROJECT
+gcloud container clusters get-credentials superset-cluster --region $GCP_REGION --project $PROJECT_ID
 ```
 
 ## Accessing Superset
@@ -78,3 +78,12 @@ Cloud console. To be precise:
 5. Upload the file you got to Superset
 
 After this, everything should "just work"!
+
+## Uninstallation
+To destroy Superset installation and the Kubernetes cluster, run:
+
+```sh
+tofu apply -var project_id=$PROJECT_ID -var region=$GCP_REGION
+```
+
+(use the `export` commands from installation instructions if needed)
