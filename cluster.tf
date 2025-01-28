@@ -12,6 +12,7 @@ resource "google_container_cluster" "autopilot" {
     name = "superset-cluster"
 
     enable_autopilot = true
+    deletion_protection = false
 }
 
 data "google_client_config" "current" {}
