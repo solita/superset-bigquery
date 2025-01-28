@@ -4,7 +4,8 @@ on Google Cloud with Kubernetes.
 
 > WARNING! This does not result in a production-ready deployment!
 > This is not officially supported Solita Cloud project!
-That being said, you can contact @bensku in Slack for assistance.
+
+That being said, Solitans can contact @bensku in Slack for assistance.
 
 ## Requirements
 Before we start, make sure you have these tools installed and configured:
